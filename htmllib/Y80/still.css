@@ -1,0 +1,154 @@
+
+    #dis {
+        width: 180px;
+        height: 30px;
+        border: 1px solid #4E8975;
+        border-right: none;
+        background-color:#19AFE6FF;
+        border-radius: 4px;
+}
+    .musictitle {
+    background-color: rgba(255,255,255,0.7);
+    height: 35px;
+    font-size: 28px;
+}
+    .lox-1 {
+        color:#FFFFFF;
+}
+    ul {
+        list-style: none;
+}
+    #nm-pr {
+        position:absolute; 
+        left:235px;
+        top:105px;
+}
+    #nm-m {
+        position: absolute;
+        left:465px;
+        top:105px;
+}
+    #qqm-cb {
+        position: absolute;
+        left: 695px;
+        top:105px;
+}
+    #nm-somar {
+        position: absolute;
+        left: 925px;
+        top:105px;
+}    
+    .videotitle {
+        background-color: rgba(255,255,255,0.7);
+        height: 35px;
+        font-size: 28px;
+}
+    .lox-2 {
+        color:#FFFFFF;
+}
+    .music {
+        background-image: url('https://static.runoob.com/images/mix/paper.gif');    
+}
+    .video {
+        background-image: url('https://i02piccdn.sogoucdn.com/ede2a4fefb4a3098');
+}
+    #blbl-heew-ftpfpss {
+        position: absolute;
+        left: 235px;
+        top: 491px;
+}
+    #blbl-scnw23-sw {
+        position: absolute;
+        left: 470px;
+        top: 491px;
+}
+    .top {
+        position: absolute;
+        top: 120px;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-decoration: none;
+        text-align: center;
+        background-color: #FF0000;
+        color: #4EE2EC;
+        right: 10px;
+        transition: all 0.3s;
+        visibility: hidden;
+}
+    .top:hover {
+        background-color: #FF0000;
+}
+    #blbl-wlvszgl-tdbdah {
+        position: absolute;
+        left: 705px;
+        top: 491px;
+}
+    #blbl-xiop-ntsud-icncy {
+        position: absolute;
+        left: 940px;
+        top: 492px;
+}  
+    .phototitle {
+        background-color: rgba(255,255,255,0.7);
+        height: 35px;
+        font-size: 28px;
+}
+    .lox-3 {
+        color:#FFFFFF;
+}
+    .photo {
+        background-image: url('https://i03piccdn.sogoucdn.com/63e5ee14a13b8a71'); 
+}
+    #p-ppoessot {
+        position: absolute;
+        left: 235px;
+        top: 878px;
+}
+    #g-ttsth {
+        position: absolute;
+        left: 235px;
+        top: 1082px;
+}
+    #g-iwbayds {
+        position: absolute;
+        left: 470px;
+        top: 878px;
+}
+    #j-dia {
+        position: absolute;
+        left: 470px;
+        top: 1082px;
+}
+    #g-ftsw {
+        position: absolute;
+        left: 705px;
+        top: 878px;
+}
+    #g-alg {
+        position: absolute;
+        left: 705px;
+        top: 1082px;
+}
+    .moretitle {
+        background-color: rgba(255,255,255,0.7);
+        height: 35px;
+        font-size: 28px;
+}
+    .lox-4 {
+        color: #FFFFFF;
+}
+    .more {
+        background-image: url('https://image.so.com/view?src=360pic_strong&z=1&i=0&cmg=15484592.2351387008829252600.1595150750388.0183&q=%E7%BD%91%E9%A1%B5%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90&correct=%E7%BD%91%E9%A1%B5%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90&ancestor=list&cmsid=ccdfde735560152fe3036772a5a7d36b&cmras=6&cn=0&gn=0&kn=47&crn=0&bxn=20&fsn=127&cuben=0&pornn=0&manun=46&adstar=0&clw=250#id=031e1bb19695e595bcf00fdad9c17f06&currsn=0&ps=112&pc=112');
+}
+    #j-sftt {
+        position: absolute;
+        left: 940px;
+        top: 878px;
+}
+    #b-dihf {
+        position: absolute;
+        left: 940px;
+        top: 1082px;
+}

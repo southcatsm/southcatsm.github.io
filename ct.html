@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>❤️❤️在线免费❤️❤️学习资料❤️❤️高清无码❤️❤️</title>
+        <link rel="stylesheet" href="htmllib/bv5.css"/>
+        <link rel="icon" href="head.png"/>
+        <style>
+            body{
+                background-image: url(https://www.loliapi.com/acg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="already">
+            <!-- Alert and Redirect -->
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="waralert">
+                注意！本页面可能不适宜未成年人观看。若您未满18周岁，请勿访问本页面。
+                <br/>
+                若您已知晓，
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#2FC">
+                    点击进行下一步
+                </button>
+                <!--2FC>>2 Factors Confirm-->
+            </div>
+            <!-- Confirm -->
+            <div class="modal fade" id="2FC" tabindex="-1" aria-labelledby="2FC-content" aria-hidden="true" role="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="2FC-content">2FC警告！</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>由于接下来的内容可能不适宜未成年人观看，网站响应<strong style="color: red;">《中华人民共和国未成年人保护法》</strong>，对未满18周岁的未成年人进行统一拦截</p>
+                            <p>Due to the following may not be suitable for minors to watch.We respond to the <a style="color: red;">Law of the P.R.C on the Protection of Minors</a> by uniformly intercepting people who are under the age of 18.</p>
+                            <p>请您务必保证：您已满18周岁，具有自主辨别意识，健康生活积极向上，与黄赌毒淫不共戴天</p>
+                            <p>Please ensure that <br/>a.You are at least 18 years old;<br/>b.Have a sense of self-discipline;<br/>c.Live a healthy and positive life;<br/>d.Do not tolerate pornography,gambling,drug abuse,or sexual activity.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel">取消</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="teleport">已阅，我未满18周岁</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="accept">已阅，我已满18周岁</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- video -->
+        <video id="rickvideo" src="https://vdse.bdstatic.com/192d9a98d782d9c74c96f09db9378d93.mp4" loop hidden width="100%" height="100%"></video>
+    </body>
+    <script type="text/javascript" src="htmllib/bv5.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        var accepted=document.getElementById("accept");
+        var video=document.getElementById("rickvideo");
+        var unaccepted=document.getElementById("teleport");
+        var waralert=document.getElementById("waralert");
+        function readyaccept(){
+            video.removeAttribute("hidden");
+            waralert.hidden=true;
+            video.play();
+            const{documentElement}=document;
+            if(documentElement.requestFullscreen)documentElement.requestFullscreen();
+            else if(documentElement.mozRequestFullScreen)documentElement.mozRequestFullScreen();
+            else if(documentElement.webkitRequestFullscreen)documentElement.webkitRequestFullscreen();
+            else if(documentElement.msRequestFullscreen)documentElement.msRequestFullscreen();
+        }
+        function teleport(){
+            window.location.href="https://southcatsm.github.io";
+        }
+        accepted.addEventListener("click",readyaccept);
+        unaccepted.addEventListener("click",teleport);
+        //20230810 Morlor97
+    </script>
+</html>

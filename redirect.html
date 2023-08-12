@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>跳转</title>
+    <link href="htmllib/Y80/default.css" rel="stylesheet" type="text/css" />
+	<!--必要样式-->
+    <link href="htmllib/Y80/styles.css" rel="stylesheet" type="text/css" />
+    <link href="htmllib/Y80/demo.css" rel="stylesheet" type="text/css" />
+    <link href="htmllib/Y80/loaders.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="head.png"/>
+</head>
+<body oncontextmenu=self.event.returnValue=false>
+	<div class='login'>
+	  <div class='login_title'>
+	    <span>跳转确认界面</span>
+	  </div>
+	  <div class='login_fields'>
+	    <div class='login_fields__user'>
+	      <div class='icon'>
+	        <img alt="" src='htmllib/Y80/user_icon_copy.png'>
+	      </div>
+	      <input name="login" placeholder='重定向位置' maxlength="16" type='text' autocomplete="off" value="" id="iduser" disabled/>
+	        <div class='validation'>
+	          <img alt="" src='htmllib/Y80/tick.png'>
+	        </div>
+	    </div>
+	    <div class='login_fields__password'>
+	      <div class='icon'>
+	        <img alt="" src='htmllib/Y80/lock_icon_copy.png'>
+	      </div>
+	      <input name="pwd" placeholder='重定向ID' maxlength="16" type='text' autocomplete="off" id="idpass" disabled>
+	      <div class='validation'>
+	        <img alt="" src='htmllib/Y80/tick.png'>
+	      </div>
+	    </div>
+	    <div class='login_fields__password'>
+	      <div class='icon'>
+	        <img alt="" src='htmllib/Y80/key.png'>
+	      </div>
+	      <input name="code" placeholder='验证码(可不区分大小写)' maxlength="7" type='text' name="ValidateNum" autocomplete="off" id="idcode">
+	      <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+          <canvas class="J_codeimg" id="myCanvas" onclick="Code();">您的浏览器不支持canvas无法显示图形验证码，请下载其他支持Canvas的浏览器!</canvas>
+	      </div>
+	    </div>
+	    <div class='login_fields__submit'>
+	      <input type='button' value='重定向'>
+	    </div>
+	  </div>
+	  <div class='success'>
+	  </div>
+	</div>
+	<div class='authent'>
+	  <div class="loader" style="height: 44px;width: 44px;margin-left: 28px;">
+        <div class="loader-inner ball-clip-rotate-multiple">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        </div>
+	  <p>正在检查...</p>
+	</div>
+	<div class="OverWindows"></div>
+	
+    <link href="htmllib/Y80/css/layui.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="htmllib/Y80/jquery.min.js"></script>
+	<script type="text/javascript" src="htmllib/Y80/jquery-ui.min.js"></script>
+	<script type="text/javascript" src='htmllib/Y80/stopExecutionOnTimeout.js?t=1'></script>
+    <script type="text/javascript" src="htmllib/Y80/layui.js"></script>
+    <script type="text/javascript" src="htmllib/Y80/Particleground.js"></script>
+    <script type="text/javascript" src="htmllib/Y80/Treatment.js"></script>
+    <script type="text/javascript" src="htmllib/Y80/jquery.mockjax.js"></script>
+	<script type="text/javascript">
+		var canGetCookie = 0;//0 Unsupport 1 Support
+		var ajaxmockjax = 1;//0 Off 1 On
+		var sta=false;
+		function getUrl(url){
+			try{
+				let arr = url.split('?');
+            	let params = arr[1].split('&');
+			}catch(err){
+				url=url+"?where=github.com/southcatsm/&authorize=false";
+				sta=true;
+			}
+			let arr = url.split('?');
+            let params = arr[1].split('&');
+            let obj = {};
+            for(let i=0;i<params.length;i++){
+                let param = params[i].split('=');
+                obj[param[0]] = param[1];
+            }
+            return obj;
+        }
+		function rid(min,max){
+			return Math.floor(Math.random()*(max-min)+min);
+		}
+		var useruser=document.getElementById("iduser");
+		var requesid=document.getElementById("idpass");
+		var vericode=document.getElementById("idcode");
+		var authstat=getUrl(window.location.href)["authorize"];
+		requesid.value=rid(11243652700,936336736477000);
+		useruser.value="https://"+getUrl(window.location.href)["where"];
+		var CodeVal = 0;
+	    Code();
+	    function Code() {
+			if(canGetCookie == 1){
+				createCode("AdminCode");
+				var AdminCode = getCookieValue("AdminCode");
+				showCheck(AdminCode);
+			}else{
+				showCheck(createCode(""));
+			}
+	    }
+	    function showCheck(a) {
+			CodeVal = a;
+	        var c = document.getElementById("myCanvas");
+	        var ctx = c.getContext("2d");
+	        ctx.clearRect(0, 0, 1000, 1000);
+	        ctx.font = "80px 'Hiragino Sans GB'";
+	        ctx.fillStyle = "#E8DFE8";
+	        ctx.fillText(a, 0, 100);
+	    }
+		
+	    $(document).keypress(function (e) {
+	        // 回车键事件  
+	        if (e.which == 13) {
+	            $('input[type="button"]').click();
+	        }
+	    });
+	    //粒子背景特效
+	    $('body').particleground({
+	        dotColor: '#E8DFE8',
+	        lineColor: '#133b88'
+	    });
+	    $('input[name="pwd"]').focus(function () {
+	        $(this).attr('type', 'password');
+	    });
+	    $('input[type="text"]').focus(function () {
+	        $(this).prev().animate({ 'opacity': '1' }, 200);
+	    });
+	    $('input[type="text"],input[type="password"]').blur(function () {
+	        $(this).prev().animate({ 'opacity': '.5' }, 200);
+	    });
+	    $('input[name="login"],input[name="pwd"]').keyup(function () {
+	        var Len = $(this).val().length;
+	        if (!$(this).val() == '' && Len >= 5) {
+	            $(this).next().animate({
+	                'opacity': '1',
+	                'right': '30'
+	            }, 200);
+	        } else {
+	            $(this).next().animate({
+	                'opacity': '0',
+	                'right': '20'
+	            }, 200);
+	        }
+	    });
+	    var open = 0;
+	    layui.use('layer', function () {
+			if(authstat=="false"){
+				var msgalert = '直接重定向就好啦了( •̀ ω •́ )✧';
+				vericode.disabled=true;
+				vericode.placeholder="无需填写";
+			}
+			else{var msgalert = '确认将跳转网站的安全性再做决定哦ヾ(≧▽≦*)o';}
+    		var index = layer.alert(msgalert, { icon: 6, time: 4000, offset: 't', closeBtn: 0, title: 'NOTICE', btn: [], anim: 2, shade: 0 });  
+			layer.style(index, {
+				color: '#777'
+			}); 
+	        //非空验证
+	        $('input[type="button"]').click(function () {
+	            var login = $('input[name="login"]').val();
+	            var pwd = $('input[name="pwd"]').val();
+	            var code = $('input[name="code"]').val();
+	            if (login == '') {
+	                ErroAlert('请确保每一项都不是空的！');
+	            } else if (pwd == '') {
+	                ErroAlert('请确保每一项都不是空的！');
+	            } else if (code == ''&& authstat=="true") {
+	                ErroAlert('验证码不得留空');
+	            } else {
+	                //认证中..
+	                //fullscreen();
+	                $('.login').addClass('test'); //倾斜特效
+	                setTimeout(function () {
+	                    $('.login').addClass('testtwo'); //平移特效
+	                }, 300);
+	                setTimeout(function () {
+	                    $('.authent').show().animate({ right: -320 }, {
+	                        easing: 'easeOutQuint',
+	                        duration: 600,
+	                        queue: false
+	                    });
+	                    $('.authent').animate({ opacity: 1 }, {
+	                        duration: 200,
+	                        queue: false
+	                    }).addClass('visible');
+	                }, 500);
+
+	                //登录
+	                var JsonData = { login: login, pwd: pwd, code: code };
+					//此处做为ajax内部判断
+					var url = "";
+					if(authstat=="false"){JsonData.code=CodeVal.toUpperCase()}
+					if(JsonData.code.toUpperCase() == CodeVal.toUpperCase()){
+						url = "Ajax/Login";
+					}else{
+						url = "Ajax/LoginFalse";
+					}
+					
+					
+	                AjaxPost(url, JsonData,
+	                                function () {
+	                                    //ajax加载中
+	                                },
+	                                function (data) {
+	                                    //ajax返回 
+	                                    //认证完成
+	                                    setTimeout(function () {
+	                                        $('.authent').show().animate({ right: 90 }, {
+	                                            easing: 'easeOutQuint',
+	                                            duration: 600,
+	                                            queue: false
+	                                        });
+	                                        $('.authent').animate({ opacity: 0 }, {
+	                                            duration: 200,
+	                                            queue: false
+	                                        }).addClass('visible');
+	                                        $('.login').removeClass('testtwo'); //平移特效
+	                                    }, 2000);
+	                                    setTimeout(function () {
+	                                        $('.authent').hide();
+	                                        $('.login').removeClass('test');
+	                                        if (data.Status == 'ok') {
+	                                            //登录成功
+												
+	                                            $('.login div').fadeOut(100);
+	                                            $('.success').fadeIn(1000);
+	                                            $('.success').html(data.Text);
+												//跳转操作
+												window.location.href = "https://"+getUrl(window.location.href)["where"]; 
+	                                        } else {
+	                                            AjaxErro(data);
+	                                        }
+	                                    }, 2400);
+	                                })
+	            }
+	        })
+	    })
+		if(ajaxmockjax == 1){
+			$.mockjax({  
+				url: 'Ajax/Login',  
+				status: 200,  
+				responseTime: 50,      
+				responseText: {"Status":"ok","Text":"感谢您的支持！<br/>如果您长时间在本界面停留，请检查网络连接状态或科学软件的连接状态"}
+			}); 
+			$.mockjax({  
+				url: 'Ajax/LoginFalse',  
+				status: 200,  
+				responseTime: 100,          
+				responseText: {"Status":"Erro","Erro":"验证码错误."}
+			});   
+		}
+    </script>
+</body>
+</html>
